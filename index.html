@@ -5,24 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="..\css\default.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="..\js\dynamic.js"></script>
     <title>Resume</title>
 </head>
 
 <body>
     <div class="container">
+        <div id="pickColor"><input type="color" onchange="changeBackgroudColor()"></div>
         <section id="profile-container">
             <div id="profile">
                 <img id="profile-pic" src="..\img\profile.jpg" alt="profile picture">
                 <div id="profile-bio">
-                    <h2 id="fullname">Chayanin Chonlahan</h2>
+                    <h2 id="fullname"><span id="nameText">Chayanin Chonlahan</span>
+                        <span>
+                            <i id="editNameIcon" class="edit far fa-edit" onclick="toggleEditName()">
+                            </i>
+                        </span>
+                        <span id="editName">
+                            <input id="inputEditName" type="text"><i id="save" class="edit far fa-save"
+                                onclick="submitName()"></i>
+                            <i class="edit far fa-window-close" onclick="toggleEditName()"></i>
+                        </span>
+                    </h2>
+
+
                     <h3 id="nickname">Ice</h3>
-                    <p id="biography">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ea sint voluptatibus?
+                    <p id="biography">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ea sint
+                        voluptatibus?
                         Accusamus porro
                         mollitia a distinctio eligendi aut, dolore quos, saepe in ut laboriosam repellendus sit
                         expedita,
-                        explicabo officiis.Labore dicta odit quo, blanditiis culpa expedita sequi molestiae nesciunt,
-                        eligendi ex alias ratione explicabo eum iure cum corporis iusto quam pariatur reiciendis veniam
+                        explicabo officiis.Labore dicta odit quo, blanditiis culpa expedita sequi molestiae
+                        nesciunt,
+                        eligendi ex alias ratione explicabo eum iure cum corporis iusto quam pariatur reiciendis
+                        veniam
                         eaque? Reprehenderit repellat quo consequuntur illum?</p>
                 </div>
             </div>
@@ -30,7 +50,7 @@
         <section id="education-container">
             <div id="education">
                 <h3>EDUCATIONS</h3>
-                <hr>
+
                 <ul id="education-list">
                     <li><span><strong>2008-2012</strong></span>
                         <div class="degree"><strong>Master of Economics (Business Economics)</strong>
@@ -48,13 +68,19 @@
 
         <section id="skill-container">
             <div id="skill">
-                <h3>SKILLS</h3>
-                <hr>
+                <h3>SKILLS
+                    <i id="editSkillIcon" class="edit far fa-edit" onclick="toggleEditSkill()"></i>
+                    <i id="closeSkillIcon" class="edit far fa-window-close" onclick="toggleEditSkill()"></i>
+                </h3>
                 <ul id="skill-list">
-                    <li>Teamwork</li>
-                    <li>Decision Making</li>
-                    <li>Research & Strategy</li>
-                    <li>Emotional Intelligence</li>
+                    <li><span class="delIcon"><i class="far fa-trash-alt"></i></span><span>Teamwork</span></li>
+                    <li><span class="delIcon"><i class="far fa-trash-alt"></i></span><span>Decision Making</span></li>
+                    <li><span class="delIcon"><i class="far fa-trash-alt"></i></span><span>Research & Strategy</span>
+                    </li>
+                    <li><span class="delIcon"><i class="far fa-trash-alt"></i></span><span>Emotional Intelligence</span>
+                    </li>
+                    <span><input id="inputEditSkill" type='text'></input><i id="saveSkill"
+                            class="edit far fa-save fa-lg" onclick="submitSkill()"></i></span>
                 </ul>
             </div>
         </section>

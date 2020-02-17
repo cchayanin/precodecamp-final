@@ -1,3 +1,10 @@
+:root {
+  --backgroundColor: hsl(40, 100%, 60%);
+  --fontColor: hsl(220, 100%, 60%);
+  --borderColor: hsl(270, 100%, 60%);
+  --iconColor: hsl(90, 100%, 60%);
+}
+
 @media screen and (max-width: 800px) {
   #profile-pic {
     max-width: 120px;
@@ -7,15 +14,29 @@
 
 body {
   font-family: "Noto Serif", Arial, Helvetica, sans-serif;
+  color: var(--fontColor);
 }
 
 .container {
   margin: 1vh auto;
   width: 90vw;
-  padding: 1vw;
+  padding: 1vh 1vw;
   border: 2px solid #a00;
   border-radius: 20px;
-  background-color: antiquewhite;
+  background-color: var(--backgroundColor);
+}
+
+#pickColor {
+  position: relative;
+  text-align: right;
+}
+
+#pickColor input[type="color"] {
+  box-sizing: border-box;
+  border-radius: 50%;
+  padding: 8px;
+  width: 30px;
+  height: 30px;
 }
 
 #profile-pic {
@@ -24,12 +45,12 @@ body {
   margin: auto;
   height: 150px;
   width: 150px;
-  border: 4px solid mediumspringgreen;
+  border: 4px solid var(--borderColor);
 }
 
 #profile-container {
   margin: 1vh auto;
-  border: 1px dashed yellowgreen;
+  border: 1px dashed var(--borderColor);
   border-radius: 20px;
   padding: 5px;
   background-color: transparent;
@@ -37,6 +58,8 @@ body {
 
 #fullname {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 0;
 }
 #nickname {
@@ -51,17 +74,13 @@ body {
 
 #education-container {
   margin: 1vh auto;
-  border: 1px dashed orange;
+  border: 1px dashed var(--borderColor);
   border-radius: 20px;
   padding: 5px;
 }
 
 #education h3 {
   margin-bottom: 0;
-}
-
-#education hr {
-  margin: 0;
 }
 
 #education-list {
@@ -87,7 +106,7 @@ body {
 
 #skill-container {
   margin: 1vh auto;
-  border: 1px dashed magenta;
+  border: 1px dashed var(--borderColor);
   border-radius: 20px;
   padding: 5px;
 }
@@ -96,11 +115,11 @@ body {
   margin-bottom: 0;
 }
 
-#skill hr {
-  margin: 0;
-}
-
 #skill-list {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
 }
@@ -108,6 +127,43 @@ body {
   display: inline-block;
   margin: 5px 5px;
   padding: 5px 5px;
-  background-color: lightgreen;
+  background-color: var(--iconColor);
   border-radius: 5px;
+}
+
+.edit {
+  padding-left: 10px;
+}
+
+.far {
+  color: var(--borderColor);
+}
+
+#editName {
+  display: none;
+}
+
+#inputEditName {
+  vertical-align: middle;
+  padding: 5px 5px;
+}
+
+#skill-list span:first-child {
+  display: none;
+}
+
+#skill-list > span {
+  display: none;
+}
+#skill-list span input {
+  padding: 5px 5px;
+}
+
+#closeSkillIcon {
+  display: none;
+}
+
+.delIcon {
+  display: none;
+  padding: 0 5px 0 0;
 }
